@@ -6,6 +6,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.6.2
+    argocd.argoproj.io/sync-options: Replace=true
   creationTimestamp: null
   name: prometheuses.monitoring.coreos.com
 spec:
@@ -4032,7 +4033,10 @@ spec:
                   annotations:
                     additionalProperties:
                       type: string
-                    description: ''
+                    description: 'Annotations is an unstructured key value map stored
+                      with a resource that may be set by external tools to store and
+                      retrieve arbitrary metadata. They are not queryable and should
+                      be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations'
                     type: object
                   labels:
                     additionalProperties:
@@ -5841,7 +5845,11 @@ spec:
                           annotations:
                             additionalProperties:
                               type: string
-                            description: ''
+                            description: 'Annotations is an unstructured key value
+                              map stored with a resource that may be set by external
+                              tools to store and retrieve arbitrary metadata. They
+                              are not queryable and should be preserved when modifying
+                              objects. More info: http://kubernetes.io/docs/user-guide/annotations'
                             type: object
                           labels:
                             additionalProperties:
