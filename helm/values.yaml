@@ -675,6 +675,7 @@ grafana:
     ##
     hosts:
       - grafana-lab.dev
+      - grafana-lab.lab.myddns.me
     #hosts: []
 
     ## Path for grafana ingress
@@ -1954,6 +1955,7 @@ prometheus:
     ##
     hosts:
       - prometheus-lab.dev
+      - prometheus.lab.myddns.me
     #hosts: []
 
     ## Paths to use for ingress rules - one path should match the prometheusSpec.routePrefix
