@@ -675,7 +675,7 @@ grafana:
     ##
     hosts:
       - grafana-lab.dev
-      - grafana-lab.lab.myddns.me
+      - grafana.lab.myddns.me
     #hosts: []
 
     ## Path for grafana ingress
