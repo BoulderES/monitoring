@@ -1,6 +1,3 @@
-{{- if or (and .Values.grafana.enabled .Values.grafana.defaultDashboardsEnabled) .Values.grafana.forceDeployDashboards }}
-{{- $files := .Files.Glob "dashboards-1.14/*.json" }}
-{{- if $files }}
 apiVersion: v1
 kind: ConfigMapList
 items:
@@ -11,7 +8,6 @@ items:
   metadata:
     name: {{ printf "%s-%s" (include "kube-prometheus-stack.fullname" $) $dashboardName | trunc 63 | trimSuffix "-" }}
     namespace: {{ template "kube-prometheus-stack-grafana.namespace" $ }}
-    test: app
     labels:
       {{- if $.Values.grafana.sidecar.dashboards.label }}
       {{ $.Values.grafana.sidecar.dashboards.label }}: "1"
@@ -20,6 +16,3 @@ items:
 {{ include "kube-prometheus-stack.labels" $ | indent 6 }}
   data:
     {{ $dashboardName }}.json: {{ $.Files.Get $path | toJson }}
-{{- end }}
-{{- end }}
-{{- end }}
