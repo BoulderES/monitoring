@@ -11,6 +11,7 @@ items:
   metadata:
     name: {{ printf "%s-%s" (include "kube-prometheus-stack.fullname" $) $dashboardName | trunc 63 | trimSuffix "-" }}
     namespace: {{ template "kube-prometheus-stack-grafana.namespace" $ }}
+    test: app
     labels:
       {{- if $.Values.grafana.sidecar.dashboards.label }}
       {{ $.Values.grafana.sidecar.dashboards.label }}: "1"
